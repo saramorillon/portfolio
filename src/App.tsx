@@ -3,6 +3,7 @@ import { BrowserRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import { Banner } from './components/Banner'
 import { Header } from './components/Header'
+import { Indicators } from './components/Indicators'
 
 const Background = styled('div')({
   backgroundImage: 'url(background.jpg)',
@@ -20,6 +21,7 @@ export function App(): JSX.Element {
         <Header />
         <Banner />
       </Background>
+      <Indicators />
     </BrowserRouter>
   )
 }
