@@ -1,11 +1,25 @@
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
+import styled from 'styled-components'
+import { Banner } from './components/Banner'
 import { Header } from './components/Header'
+
+const Background = styled('div')({
+  backgroundImage: 'url(background.jpg)',
+  backgroundRepeat: 'no-repeat',
+  height: '28rem',
+  color: '#f2f3f5',
+  display: 'flex',
+  flexDirection: 'column'
+})
 
 export function App(): JSX.Element {
   return (
     <BrowserRouter>
-      <Header />
+      <Background>
+        <Header />
+        <Banner />
+      </Background>
     </BrowserRouter>
   )
 }

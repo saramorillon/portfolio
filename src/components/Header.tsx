@@ -18,7 +18,7 @@ const MenuItem = styled('li')({
 
 const Anchor = styled(NavHashLink)({
   textDecoration: 'none',
-  color: '#303030',
+  color: '#f2f3f5',
   padding: '0.25rem 0',
   '&.active': { color: 'crimson', borderBottom: '3px solid crimson' }
 })
