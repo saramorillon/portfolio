@@ -6,41 +6,41 @@ import { Container as BaseContainer } from './Container'
 const Container = styled(BaseContainer)({
   flexDirection: 'row',
   alignItems: 'start',
-  padding: '2rem 0'
+  padding: '2rem 0',
 })
 
 const Presentation = styled('div')({
-  flex: 1
+  flex: 1,
 })
 
 const Paragraph = styled('p')({
-  color: colors.darkgrey
+  color: colors.darkgrey,
 })
 
 const Row = styled('div')({
   display: 'flex',
-  padding: '0.5rem 0'
+  padding: '0.5rem 0',
 })
 
 const Term = styled('div')({
   fontWeight: 'bold',
-  width: '10rem'
+  width: '10rem',
 })
 
 const Desc = styled('div')({
   color: colors.main,
   fontWeight: 'bold',
-  flex: 1
+  flex: 1,
 })
 
 const Love = styled('div')({
   display: 'flex',
   justifyContent: 'space-between',
-  padding: '2rem 0'
+  padding: '2rem 0',
 })
 
 const Img = styled('img')({
-  marginRight: '2rem'
+  marginRight: '2rem',
 })
 
 export function About(): JSX.Element {

@@ -9,7 +9,7 @@ const CatchPhrase = styled('h3')({
   color: colors.main,
   textTransform: 'uppercase',
   fontSize: 'small',
-  margin: 0
+  margin: 0,
 })
 
 const HireButton = styled('button')({
@@ -20,17 +20,17 @@ const HireButton = styled('button')({
   borderRadius: '0.25rem',
   color: colors.white,
   padding: '0.5rem',
-  fontWeight: 'bold'
+  fontWeight: 'bold',
 })
 
 const CvButton = styled(HireButton)({
   backgroundColor: 'transparent',
   color: colors.main,
-  marginLeft: '0.75rem'
+  marginLeft: '0.75rem',
 })
 
 const Title = styled('h1')({
-  width: '35rem'
+  width: '35rem',
 })
 
 export function Banner(): JSX.Element {

@@ -10,14 +10,14 @@ const Button = styled('span')({
   cursor: 'pointer',
   transition: 'all .3s ease-in-out 0s',
   hr: {
-    transform: 'scaleX(0)'
+    transform: 'scaleX(0)',
   },
   '&.active': {
     color: colors.main,
     hr: {
-      transform: 'scaleX(1)'
-    }
-  }
+      transform: 'scaleX(1)',
+    },
+  },
 })
 
 const Underline = styled('hr')({
@@ -25,7 +25,7 @@ const Underline = styled('hr')({
   border: 'none',
   background: colors.main,
   transform: 'scaleX(0)',
-  transition: 'all .3s ease-in-out 0s'
+  transition: 'all .3s ease-in-out 0s',
 })
 
 export function Link({ to, children }: PropsWithChildren<{ to: string }>): JSX.Element {

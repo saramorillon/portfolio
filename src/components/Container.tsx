@@ -7,5 +7,5 @@ export const Container = styled('div')({
   flex: '1',
   display: 'flex',
   justifyContent: 'center',
-  flexDirection: 'column'
+  flexDirection: 'column',
 })

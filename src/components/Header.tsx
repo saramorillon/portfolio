@@ -19,12 +19,12 @@ const Menu = styled('ul')({
     color: colors.black,
     backgroundColor: colors.lightgrey,
     position: 'fixed',
-    width: '100%'
-  }
+    width: '100%',
+  },
 })
 
 const MenuItem = styled('li')({
-  margin: '0 1rem'
+  margin: '0 1rem',
 })
 
 export function Header(): JSX.Element {

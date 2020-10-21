@@ -7,7 +7,7 @@ const Band = styled('div')({
   backgroundColor: colors.lightgrey,
   display: 'flex',
   justifyContent: 'space-around',
-  padding: '3rem'
+  padding: '3rem',
 })
 
 const Icon = styled('div')({
@@ -19,24 +19,24 @@ const Icon = styled('div')({
   alignItems: 'center',
   color: colors.white,
   fontSize: '2rem',
-  marginRight: '0.75rem'
+  marginRight: '0.75rem',
 })
 
 const Quantity = styled('div')({
   fontWeight: 'bold',
-  fontSize: '1.5rem'
+  fontSize: '1.5rem',
 })
 
 const Label = styled('div')({
   fontWeight: 'bold',
   textTransform: 'uppercase',
   color: colors.main,
-  fontSize: '0.75rem'
+  fontSize: '0.75rem',
 })
 
 const Flex = styled('div')({
   display: 'flex',
-  alignItems: 'center'
+  alignItems: 'center',
 })
 
 interface IIndicatorProps {

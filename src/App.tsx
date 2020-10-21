@@ -13,7 +13,7 @@ const Background = styled('div')({
   color: colors.white,
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'center'
+  alignItems: 'center',
 })
 
 const GlobalStyle = createGlobalStyle({
@@ -21,13 +21,13 @@ const GlobalStyle = createGlobalStyle({
     margin: 0,
     backgroundColor: colors.white,
     color: colors.black,
-    fontFamily: "'Noto Sans', sans-serif"
-  }
+    fontFamily: "'Noto Sans', sans-serif",
+  },
 })
 
 const Footer = styled('footer')({
   height: '25em',
-  backgroundColor: colors.black
+  backgroundColor: colors.black,
 })
 
 export function App(): JSX.Element {

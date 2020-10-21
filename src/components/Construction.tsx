@@ -6,7 +6,7 @@ const Page = styled('div')({
   justifyContent: 'center',
   alignItems: 'center',
   flexDirection: 'column',
-  height: '100vh'
+  height: '100vh',
 })
 
 export function Construction(): JSX.Element {
