@@ -1,4 +1,6 @@
-export const colors = {
+import { Property } from 'csstype'
+
+export const colors: { [key: string]: Property.Color } = {
   main: 'crimson',
   white: '#f2f3f5',
   black: '#303030',
