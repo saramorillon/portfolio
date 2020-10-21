@@ -1,6 +1,7 @@
 import classnames from 'classnames'
 import React, { PropsWithChildren, useCallback, useState } from 'react'
 import styled from 'styled-components'
+import { colors } from '../colors'
 import { useScrollEffect } from '../hooks/useScroll'
 
 const Button = styled('span')({
@@ -12,7 +13,7 @@ const Button = styled('span')({
     transform: 'scaleX(0)'
   },
   '&.active': {
-    color: 'crimson',
+    color: colors.main,
     hr: {
       transform: 'scaleX(1)'
     }
@@ -22,7 +23,7 @@ const Button = styled('span')({
 const Underline = styled('hr')({
   height: '2px',
   border: 'none',
-  background: 'crimson',
+  background: colors.main,
   transform: 'scaleX(0)',
   transition: 'all .3s ease-in-out 0s'
 })

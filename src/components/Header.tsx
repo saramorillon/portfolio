@@ -1,6 +1,7 @@
 import classnames from 'classnames'
 import React from 'react'
 import styled from 'styled-components'
+import { colors } from '../colors'
 import { useScroll } from '../hooks/useScroll'
 import { Link } from './Link'
 
@@ -13,10 +14,10 @@ const Menu = styled('ul')({
   transition: 'background-color .5s ease-out',
   position: 'absolute',
   width: '100%',
-  color: '#f2f3f5',
+  color: colors.white,
   '&.fixed': {
-    color: '#303030',
-    backgroundColor: '#E8E9EB',
+    color: colors.black,
+    backgroundColor: colors.lightgrey,
     position: 'fixed',
     width: '100%'
   }

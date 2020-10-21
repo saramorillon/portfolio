@@ -1,29 +1,30 @@
 import React from 'react'
 import styled from 'styled-components'
+import { colors } from '../colors'
 
-const Red = styled('span')({ color: 'crimson' })
+const Red = styled('span')({ color: colors.main })
 
 const CatchPhrase = styled('h3')({
-  color: 'crimson',
+  color: colors.main,
   textTransform: 'uppercase',
   fontSize: 'small',
   margin: 0
 })
 
 const HireButton = styled('button')({
-  border: '2px solid crimson',
+  border: `2px solid ${colors.main}`,
   outline: 'none',
   cursor: 'pointer',
-  backgroundColor: 'crimson',
+  backgroundColor: colors.main,
   borderRadius: '0.25rem',
-  color: '#f2f3f5',
+  color: colors.white,
   padding: '0.5rem',
   fontWeight: 'bold'
 })
 
 const CvButton = styled(HireButton)({
   backgroundColor: 'transparent',
-  color: 'crimson',
+  color: colors.main,
   marginLeft: '0.75rem'
 })
 

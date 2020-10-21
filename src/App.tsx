@@ -1,5 +1,6 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
+import { colors } from './colors'
 import { Banner } from './components/Banner'
 import { Header } from './components/Header'
 import { Indicators } from './components/Indicators'
@@ -8,21 +9,33 @@ const Background = styled('div')({
   backgroundImage: 'url(background.jpg)',
   backgroundRepeat: 'no-repeat',
   height: '28rem',
-  color: '#f2f3f5',
+  color: colors.white,
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center'
 })
 
+const GlobalStyle = createGlobalStyle({
+  body: {
+    margin: 0,
+    backgroundColor: colors.white,
+    color: colors.black,
+    fontFamily: "'Noto Sans', sans-serif"
+  }
+})
+
 export function App(): JSX.Element {
   return (
-    <div id="home">
-      <Background>
-        <Header />
-        <Banner />
-      </Background>
-      <Indicators />
-    </div>
+    <>
+      <GlobalStyle />
+      <div id="home">
+        <Background>
+          <Header />
+          <Banner />
+        </Background>
+        <Indicators />
+      </div>
+    </>
   )
 }
 

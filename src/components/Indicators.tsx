@@ -1,9 +1,10 @@
 import React from 'react'
 import { FaBriefcase, FaCalendarAlt, FaHeart } from 'react-icons/fa'
 import styled from 'styled-components'
+import { colors } from '../colors'
 
 const Band = styled('div')({
-  backgroundColor: '#E8E9EB',
+  backgroundColor: colors.lightgrey,
   display: 'flex',
   justifyContent: 'space-around',
   padding: '3rem'
@@ -11,13 +12,13 @@ const Band = styled('div')({
 
 const Icon = styled('div')({
   borderRadius: '50%',
-  backgroundColor: 'crimson',
+  backgroundColor: colors.main,
   width: '3rem',
   height: '3rem',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  color: '#f2f3f5',
+  color: colors.white,
   fontSize: '2rem',
   marginRight: '0.75rem'
 })
@@ -30,7 +31,7 @@ const Quantity = styled('div')({
 const Label = styled('div')({
   fontWeight: 'bold',
   textTransform: 'uppercase',
-  color: 'crimson',
+  color: colors.main,
   fontSize: '0.75rem'
 })
 
