@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import { useScrollEffect } from '../hooks/useScroll'
 
 const Button = styled('span')({
-  padding: '0.25rem 0',
   textTransform: 'uppercase',
   fontWeight: 'bold',
   cursor: 'pointer',

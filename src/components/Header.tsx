@@ -7,7 +7,7 @@ import { Link } from './Link'
 const Menu = styled('ul')({
   listStyleType: 'none',
   margin: 0,
-  padding: 0,
+  padding: '1.5rem 0 1rem 0',
   display: 'flex',
   justifyContent: 'center',
   transition: 'background-color .5s ease-out',
@@ -23,7 +23,7 @@ const Menu = styled('ul')({
 })
 
 const MenuItem = styled('li')({
-  margin: '2rem 1rem'
+  margin: '0 1rem'
 })
 
 export function Header(): JSX.Element {
