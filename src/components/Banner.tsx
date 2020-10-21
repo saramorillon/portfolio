@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { colors } from '../colors'
+import { Container } from './Container'
 
 const Red = styled('span')({ color: colors.main })
 
@@ -30,16 +31,6 @@ const CvButton = styled(HireButton)({
 
 const Title = styled('h1')({
   width: '35rem'
-})
-
-const Container = styled('div')({
-  maxWidth: '70vw',
-  minWidth: '40rem',
-  margin: 'auto',
-  flex: '1',
-  display: 'flex',
-  justifyContent: 'center',
-  flexDirection: 'column'
 })
 
 export function Banner(): JSX.Element {
