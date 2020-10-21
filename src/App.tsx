@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import { colors } from './colors'
+import { About } from './components/About'
 import { Banner } from './components/Banner'
 import { Header } from './components/Header'
 import { Indicators } from './components/Indicators'
@@ -24,6 +25,11 @@ const GlobalStyle = createGlobalStyle({
   }
 })
 
+const Footer = styled('footer')({
+  height: '25em',
+  backgroundColor: colors.black
+})
+
 export function App(): JSX.Element {
   return (
     <>
@@ -35,6 +41,10 @@ export function App(): JSX.Element {
         </Background>
         <Indicators />
       </div>
+      <div id="about">
+        <About />
+      </div>
+      <Footer />
     </>
   )
 }
