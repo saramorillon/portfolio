@@ -1,55 +1,50 @@
+import classnames from 'classnames'
 import React from 'react'
-import { NavHashLink } from 'react-router-hash-link'
 import styled from 'styled-components'
+import { useScroll } from '../hooks/useScroll'
+import { Link } from './Link'
 
 const Menu = styled('ul')({
   listStyleType: 'none',
   margin: 0,
   padding: 0,
   display: 'flex',
-  justifyContent: 'center'
+  justifyContent: 'center',
+  transition: 'background-color .5s ease-out',
+  position: 'absolute',
+  width: '100%',
+  color: '#f2f3f5',
+  '&.fixed': {
+    color: '#303030',
+    backgroundColor: '#E8E9EB',
+    position: 'fixed',
+    width: '100%'
+  }
 })
 
 const MenuItem = styled('li')({
-  margin: '2rem 1rem',
-  textTransform: 'uppercase',
-  fontWeight: 'bold'
-})
-
-const Anchor = styled(NavHashLink)({
-  textDecoration: 'none',
-  color: '#f2f3f5',
-  padding: '0.25rem 0',
-  '&.active': { color: 'crimson', borderBottom: '3px solid crimson' }
+  margin: '2rem 1rem'
 })
 
 export function Header(): JSX.Element {
+  const { y } = useScroll()
+
   return (
-    <Menu>
+    <Menu className={classnames({ fixed: y > 0 })}>
       <MenuItem>
-        <Anchor smooth to="#">
-          Home
-        </Anchor>
+        <Link to="home">Home</Link>
       </MenuItem>
       <MenuItem>
-        <Anchor smooth to="#about">
-          About
-        </Anchor>
+        <Link to="about">About</Link>
       </MenuItem>
       <MenuItem>
-        <Anchor smooth to="#skills">
-          Skills
-        </Anchor>
+        <Link to="skills">Skills</Link>
       </MenuItem>
       <MenuItem>
-        <Anchor smooth to="#history">
-          History
-        </Anchor>
+        <Link to="history">History</Link>
       </MenuItem>
       <MenuItem>
-        <Anchor smooth to="#contact">
-          Contact
-        </Anchor>
+        <Link to="contact">Contact</Link>
       </MenuItem>
     </Menu>
   )

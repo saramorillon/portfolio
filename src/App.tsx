@@ -1,5 +1,4 @@
 import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import { Banner } from './components/Banner'
 import { Header } from './components/Header'
@@ -11,18 +10,19 @@ const Background = styled('div')({
   height: '28rem',
   color: '#f2f3f5',
   display: 'flex',
-  flexDirection: 'column'
+  flexDirection: 'column',
+  alignItems: 'center'
 })
 
 export function App(): JSX.Element {
   return (
-    <BrowserRouter>
+    <div id="home">
       <Background>
         <Header />
         <Banner />
       </Background>
       <Indicators />
-    </BrowserRouter>
+    </div>
   )
 }
 
