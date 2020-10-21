@@ -13,8 +13,7 @@ const Band = styled('div')({
 const Icon = styled('div')({
   borderRadius: '50%',
   backgroundColor: colors.main,
-  width: '3rem',
-  height: '3rem',
+  padding: '0.5em',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
