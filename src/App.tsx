@@ -5,6 +5,7 @@ import { About } from './components/About'
 import { Banner } from './components/Banner'
 import { Header } from './components/Header'
 import { Indicators } from './components/Indicators'
+import { Skills } from './components/Skills'
 
 const Background = styled('div')({
   backgroundImage: 'url(background.jpg)',
@@ -44,6 +45,7 @@ export function App(): JSX.Element {
       <section id="about">
         <About />
       </section>
+      <Skills />
       <Footer />
     </>
   )
