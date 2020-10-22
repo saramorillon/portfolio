@@ -100,38 +100,40 @@ function Indicator({ icon, label }: IIndicatorProps) {
 
 export function About(): JSX.Element {
   return (
-    <Container>
-      <Img src="me.png" />
-      <Presentation>
-        <article>
-          <h1>About me</h1>
-          <Paragraph>
-            Hi! I&apos;m Sara. I build web applications and softwares since 2014, and I love it! From data modeling to
-            UI and UX design, my expertise is at your disposition.
-          </Paragraph>
-          <Citation>My job is not a job, it&apos;s a passion</Citation>
-        </article>
-        <article>
-          <Row>
-            <Term>Name:</Term>
-            <Desc>Sara Morillon</Desc>
-          </Row>
-          <Row>
-            <Term>Date of birth:</Term>
-            <Desc>June 08, 1991</Desc>
-          </Row>
-          <Row>
-            <Term>Location:</Term>
-            <Desc>Around Paris, France</Desc>
-          </Row>
-        </article>
-        <Love>
-          <Indicator icon={<FaBook />} label="Books" />
-          <Indicator icon={<FaLaptopCode />} label="Computing science" />
-          <Indicator icon={<FaGamepad />} label="Video games" />
-          <Indicator icon={<FaMusic />} label="Music" />
-        </Love>
-      </Presentation>
-    </Container>
+    <section id="about">
+      <Container>
+        <Img src="me.png" />
+        <Presentation>
+          <article>
+            <h1>About me</h1>
+            <Paragraph>
+              Hi! I&apos;m Sara. I build web applications and softwares since 2014, and I love it! From data modeling to
+              UI and UX design, my expertise is at your disposition.
+            </Paragraph>
+            <Citation>My job is not a job, it&apos;s a passion</Citation>
+          </article>
+          <article>
+            <Row>
+              <Term>Name:</Term>
+              <Desc>Sara Morillon</Desc>
+            </Row>
+            <Row>
+              <Term>Date of birth:</Term>
+              <Desc>June 08, 1991</Desc>
+            </Row>
+            <Row>
+              <Term>Location:</Term>
+              <Desc>Around Paris, France</Desc>
+            </Row>
+          </article>
+          <Love>
+            <Indicator icon={<FaBook />} label="Books" />
+            <Indicator icon={<FaLaptopCode />} label="Computing science" />
+            <Indicator icon={<FaGamepad />} label="Video games" />
+            <Indicator icon={<FaMusic />} label="Music" />
+          </Love>
+        </Presentation>
+      </Container>
+    </section>
   )
 }

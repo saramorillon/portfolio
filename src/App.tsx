@@ -2,20 +2,8 @@ import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import { colors } from './colors'
 import { About } from './components/About'
-import { Banner } from './components/Banner'
-import { Header } from './components/Header'
-import { Indicators } from './components/Indicators'
+import { Home } from './components/Home'
 import { Skills } from './components/Skills'
-
-const Background = styled('div')({
-  backgroundImage: 'url(background.jpg)',
-  backgroundRepeat: 'no-repeat',
-  height: '28rem',
-  color: colors.white,
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-})
 
 const GlobalStyle = createGlobalStyle({
   body: {
@@ -35,16 +23,8 @@ export function App(): JSX.Element {
   return (
     <>
       <GlobalStyle />
-      <section id="home">
-        <Background>
-          <Header />
-          <Banner />
-        </Background>
-        <Indicators />
-      </section>
-      <section id="about">
-        <About />
-      </section>
+      <Home />
+      <About />
       <Skills />
       <Footer />
     </>
