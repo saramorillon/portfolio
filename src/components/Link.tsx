@@ -34,7 +34,7 @@ export function Link({ to, children }: PropsWithChildren<{ to: string }>): JSX.E
   const handler = useCallback(() => {
     const elem = document.getElementById(to)
     const rect = elem?.getBoundingClientRect() || { y: 0, height: 0 }
-    if (rect.y <= 0 && rect.y + rect.height > 0) {
+    if (rect.y <= 100 && rect.y + rect.height > 100) {
       setActive(true)
     } else {
       setActive(false)
