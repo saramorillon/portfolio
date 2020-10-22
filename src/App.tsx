@@ -34,16 +34,16 @@ export function App(): JSX.Element {
   return (
     <>
       <GlobalStyle />
-      <div id="home">
+      <section id="home">
         <Background>
           <Header />
           <Banner />
         </Background>
         <Indicators />
-      </div>
-      <div id="about">
+      </section>
+      <section id="about">
         <About />
-      </div>
+      </section>
       <Footer />
     </>
   )
