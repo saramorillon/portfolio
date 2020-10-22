@@ -100,7 +100,7 @@ function Indicator({ icon, label }: IIndicatorProps) {
 
 export function About(): JSX.Element {
   return (
-    <Container id="about">
+    <Container>
       <Img src="me.png" />
       <Presentation>
         <article>
