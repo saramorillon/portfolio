@@ -10,6 +10,10 @@ const Container = styled(BaseContainer)({
   padding: '2rem 0',
 })
 
+const Title = styled('h1')({
+  fontSize: '2rem',
+})
+
 const Presentation = styled('div')({
   flex: 1,
   display: 'flex',
@@ -105,7 +109,7 @@ export function About(): JSX.Element {
         <Img src="me.png" />
         <Presentation>
           <article>
-            <h1>About me</h1>
+            <Title>About me</Title>
             <Paragraph>
               Hi! I&apos;m Sara. I build web applications and softwares since 2014, and I love it! From data modeling to
               UI and UX design, my expertise is at your disposition.

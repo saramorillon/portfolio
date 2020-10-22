@@ -11,6 +11,7 @@ const Section = styled('section')({
 
 const Title = styled('h1')({
   textAlign: 'center',
+  fontSize: '2rem',
 })
 
 const Flex = styled('div')({
@@ -33,14 +34,11 @@ const Stars = styled('div')({
 const Card = styled('article')({
   backgroundColor: 'white',
   boxShadow: '0 0.5rem 1rem rgba(0, 0, 0, 0.15)',
-  width: '10rem',
-  height: '10rem',
+  padding: '3rem 0',
   textAlign: 'center',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  alignItems: 'center',
   margin: '2rem',
+  width: '25%',
+  minWidth: '18rem',
 })
 
 interface ISkillProps {
@@ -52,7 +50,11 @@ function Skill({ name, stars }: ISkillProps): JSX.Element {
   return (
     <Card>
       <SkillName>{name}</SkillName>
-      <Stars>{new Array(stars).fill(<FaStar />).map((icon) => icon)}</Stars>
+      <Stars>
+        {new Array(stars).fill(undefined).map((_, key) => (
+          <FaStar key={key} />
+        ))}
+      </Stars>
     </Card>
   )
 }
@@ -66,8 +68,10 @@ export function Skills(): JSX.Element {
           <Flex>
             <Skill name="Node.js" stars={3} />
             <Skill name="React" stars={3} />
+            <Skill name="Agile" stars={3} />
             <Skill name="Design" stars={2} />
             <Skill name="Data" stars={2} />
+            <Skill name="Conception" stars={2} />
           </Flex>
         </article>
       </Container>
