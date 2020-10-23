@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { CSSObject } from 'styled-components'
 import { colors } from '../colors'
 import { Container } from './Container'
 
@@ -12,7 +12,7 @@ const CatchPhrase = styled('h3')({
   margin: 0,
 })
 
-const HireButton = styled('button')({
+const buttonStyle: CSSObject = {
   border: `2px solid ${colors.main}`,
   outline: 'none',
   cursor: 'pointer',
@@ -21,9 +21,13 @@ const HireButton = styled('button')({
   color: colors.white,
   padding: '0.5rem',
   fontWeight: 'bold',
-})
+}
 
-const CvButton = styled(HireButton)({
+const HireButton = styled('button')(buttonStyle)
+
+const CvButton = styled('a')({
+  ...buttonStyle,
+  textDecoration: 'none',
   backgroundColor: 'transparent',
   color: colors.main,
   marginLeft: '0.75rem',
@@ -42,7 +46,9 @@ export function Banner(): JSX.Element {
       </Title>
       <div>
         <HireButton>Hire me</HireButton>
-        <CvButton>Download my CV</CvButton>
+        <CvButton href="cv.pdf" target="_blank" rel="noopener noreferrer">
+          Download my CV
+        </CvButton>
       </div>
     </Container>
   )
