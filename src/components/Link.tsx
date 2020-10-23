@@ -28,17 +28,22 @@ const Underline = styled('hr')({
   transition: 'all .3s ease-in-out 0s',
 })
 
+const debouncers: { [key: string]: NodeJS.Timeout } = {}
+
 export function Link({ to, children }: PropsWithChildren<{ to: string }>): JSX.Element {
   const [active, setActive] = useState(false)
 
   const handler = useCallback(() => {
-    const elem = document.getElementById(to)
-    const rect = elem?.getBoundingClientRect() || { y: 0, height: 0 }
-    if (rect.y <= 100 && rect.y + rect.height > 100) {
-      setActive(true)
-    } else {
-      setActive(false)
-    }
+    clearTimeout(debouncers[to])
+    debouncers[to] = setTimeout(() => {
+      const elem = document.getElementById(to)
+      const rect = elem?.getBoundingClientRect() || { y: 0, height: 0 }
+      if (rect.y <= 100 && rect.y + rect.height > 100) {
+        setActive(true)
+      } else {
+        setActive(false)
+      }
+    }, 100)
   }, [to])
 
   useScrollEffect(handler)
@@ -46,7 +51,7 @@ export function Link({ to, children }: PropsWithChildren<{ to: string }>): JSX.E
   const onClick = useCallback(() => {
     const elem = document.getElementById(to)
     const rect = elem?.getBoundingClientRect() || { y: 0, height: 0 }
-    window.scrollTo({ top: rect.y, behavior: 'smooth' })
+    window.scrollTo({ top: rect.y + window.pageYOffset, behavior: 'smooth' })
   }, [to])
 
   return (
