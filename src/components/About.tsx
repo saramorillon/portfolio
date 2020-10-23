@@ -6,7 +6,7 @@ import { Container as BaseContainer } from './Container'
 
 const Container = styled(BaseContainer)({
   flexDirection: 'row',
-  alignItems: 'stretch',
+  alignItems: 'start',
   padding: '2rem 0',
 })
 
@@ -26,7 +26,6 @@ const Paragraph = styled('p')({
 })
 
 const Citation = styled('blockquote')({
-  // color: colors.grey,
   fontStyle: 'italic',
   borderLeft: `5px solid ${colors.grey}`,
   padding: '1.5rem',
@@ -49,10 +48,7 @@ const Desc = styled('div')({
 })
 
 const Love = styled('article')({
-  display: 'flex',
-  justifyContent: 'space-between',
   padding: '2rem 0',
-  marginTop: '2rem',
 })
 
 const Img = styled('img')({
@@ -65,27 +61,24 @@ interface IIndicatorProps {
 }
 
 const Flex = styled('div')({
-  display: 'flex',
-  alignItems: 'center',
-  borderLeft: `2px solid ${colors.main}`,
-  padding: '0 1rem',
-  '&:first-child': {
-    borderLeft: 'none',
-  },
+  display: 'inline-block',
+  marginBottom: '1rem',
+  paddingRight: '1rem',
 })
 
-const Icon = styled('div')({
+const Icon = styled('span')({
+  display: 'inline-flex',
   borderRadius: '50%',
   backgroundColor: colors.main,
-  padding: '0.5em',
-  display: 'flex',
+  color: colors.white,
+  width: '2rem',
+  height: '2rem',
   justifyContent: 'center',
   alignItems: 'center',
-  color: colors.white,
-  marginRight: '0.75rem',
+  marginRight: '0.5rem',
 })
 
-const Label = styled('div')({
+const Label = styled('span')({
   fontWeight: 'bold',
   fontSize: '0.75rem',
   textTransform: 'uppercase',
@@ -95,9 +88,7 @@ function Indicator({ icon, label }: IIndicatorProps) {
   return (
     <Flex>
       <Icon>{icon}</Icon>
-      <div>
-        <Label>{label}</Label>
-      </div>
+      <Label>{label}</Label>
     </Flex>
   )
 }
@@ -131,8 +122,8 @@ export function About(): JSX.Element {
             </Row>
           </article>
           <Love>
-            <Indicator icon={<FaBook />} label="Books" />
             <Indicator icon={<FaLaptopCode />} label="Computing science" />
+            <Indicator icon={<FaBook />} label="Books" />
             <Indicator icon={<FaGamepad />} label="Video games" />
             <Indicator icon={<FaMusic />} label="Music" />
           </Love>
