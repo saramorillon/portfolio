@@ -14,6 +14,11 @@ const Title = styled('h1')({
   fontSize: '2rem',
 })
 
+const Subtitle = styled('p')({
+  color: colors.darkgrey,
+  textAlign: 'center',
+})
+
 const Flex = styled('div')({
   display: 'flex',
   flexWrap: 'wrap',
@@ -62,18 +67,17 @@ function Skill({ name, stars }: ISkillProps): JSX.Element {
 export function Skills(): JSX.Element {
   return (
     <Section id="skills">
+      <Title>My skills</Title>
+      <Subtitle>From data modeling to UI and UX design, my expertise is at your disposition</Subtitle>
       <Container>
-        <article>
-          <Title>My skills</Title>
-          <Flex>
-            <Skill name="Node.js" stars={3} />
-            <Skill name="React" stars={3} />
-            <Skill name="Agile" stars={3} />
-            <Skill name="Design" stars={2} />
-            <Skill name="Data" stars={2} />
-            <Skill name="Conception" stars={2} />
-          </Flex>
-        </article>
+        <Flex>
+          <Skill name="Node.js" stars={3} />
+          <Skill name="React" stars={3} />
+          <Skill name="Agile" stars={3} />
+          <Skill name="Design" stars={2} />
+          <Skill name="Data" stars={2} />
+          <Skill name="Conception" stars={2} />
+        </Flex>
       </Container>
     </Section>
   )
