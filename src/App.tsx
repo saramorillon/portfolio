@@ -2,6 +2,7 @@ import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import { colors } from './colors'
 import { About } from './components/About'
+import { History } from './components/History'
 import { Home } from './components/Home'
 import { Skills } from './components/Skills'
 
@@ -26,6 +27,7 @@ export function App(): JSX.Element {
       <Home />
       <About />
       <Skills />
+      <History />
       <Footer />
     </>
   )
