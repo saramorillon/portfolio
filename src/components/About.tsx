@@ -31,6 +31,11 @@ const Citation = styled('blockquote')({
   padding: '1.5rem',
 })
 
+const Red = styled('p')({
+  color: colors.main,
+  fontWeight: 'bold',
+})
+
 const Row = styled('div')({
   display: 'flex',
   padding: '0.5rem 0',
@@ -102,9 +107,10 @@ export function About(): JSX.Element {
           <article>
             <Title>About me</Title>
             <Paragraph>
-              Hi! I&apos;m Sara. I build web applications and softwares since 2014, and I love it! From data modeling to
-              UI and UX design, my expertise is at your disposition.
+              Hi! I&apos;m Sara. I build web applications and softwares since 2014, and I love it! As a passionate
+              developer, I put quality at the heart of my work because customer satisfaction is my priority.
             </Paragraph>
+            <Red>Let&apos;s make something awesome together.</Red>
             <Citation>My job is not a job, it&apos;s a passion</Citation>
           </article>
           <article>
