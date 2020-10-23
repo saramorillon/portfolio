@@ -111,7 +111,7 @@ export function About(): JSX.Element {
               developer, I put quality at the heart of my work because customer satisfaction is my priority.
             </Paragraph>
             <Red>Let&apos;s make something awesome together.</Red>
-            <Citation>My job is not a job, it&apos;s a passion</Citation>
+            <Citation>It&apos;s not a job, it&apos;s my passion</Citation>
           </article>
           <article>
             <Row>
