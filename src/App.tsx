@@ -4,6 +4,7 @@ import { colors } from './colors'
 import { About } from './components/About'
 import { History } from './components/History'
 import { Home } from './components/Home'
+import { Networks } from './components/Networks'
 import { Skills } from './components/Skills'
 
 const GlobalStyle = createGlobalStyle({
@@ -27,6 +28,7 @@ export function App(): JSX.Element {
       <Home />
       <About />
       <Skills />
+      <Networks />
       <History />
       <Footer />
     </>

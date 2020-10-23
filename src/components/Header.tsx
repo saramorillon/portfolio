@@ -20,6 +20,7 @@ const Menu = styled('ul')({
     backgroundColor: colors.lightgrey,
     position: 'fixed',
     width: '100%',
+    zIndex: 1,
   },
 })
 
@@ -40,6 +41,9 @@ export function Header(): JSX.Element {
       </MenuItem>
       <MenuItem>
         <Link to="skills">Skills</Link>
+      </MenuItem>
+      <MenuItem>
+        <Link to="networks">Networks</Link>
       </MenuItem>
       <MenuItem>
         <Link to="history">History</Link>
