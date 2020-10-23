@@ -63,7 +63,7 @@ export function Indicators(): JSX.Element {
   return (
     <Band>
       <Indicator quantity={customers} label="projects completed" icon={<FaBriefcase />} />
-      <Indicator quantity={customers} label="happy clients" icon={<FaHeart />} />
+      <Indicator quantity={customers} label="happy principals" icon={<FaHeart />} />
       <Indicator quantity={exp} label="years of experience" icon={<FaCalendarAlt />} />
     </Band>
   )
