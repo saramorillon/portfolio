@@ -38,6 +38,12 @@ const Title = styled('h1')({
 })
 
 export function Banner(): JSX.Element {
+  function onClick() {
+    const elem = document.getElementById('contact')
+    const rect = elem?.getBoundingClientRect() || { y: 0, height: 0 }
+    window.scrollTo({ top: rect.y, behavior: 'smooth' })
+  }
+
   return (
     <Container>
       <CatchPhrase>Passionate Javascript freelance developer</CatchPhrase>
@@ -45,7 +51,7 @@ export function Banner(): JSX.Element {
         Hi, i&apos;m <Red>Sara Morillon</Red>. I build web applications and softwares.
       </Title>
       <div>
-        <HireButton>Hire me</HireButton>
+        <HireButton onClick={onClick}>Hire me</HireButton>
         <CvButton href="cv.pdf" target="_blank" rel="noopener noreferrer">
           Download my CV
         </CvButton>

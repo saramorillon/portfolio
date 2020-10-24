@@ -25,7 +25,6 @@
       ],
       "rules": {
         "import/first": "warn",
-        "import/exports-last": "warn",
         "import/order": ["warn", { "groups": [["builtin", "external"], "index", "parent", "sibling"] }],
         "@typescript-eslint/no-extra-semi": "off"
       }
