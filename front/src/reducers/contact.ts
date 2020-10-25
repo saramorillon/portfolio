@@ -7,14 +7,16 @@ interface IState {
 }
 
 interface IAction {
-  target: {
-    name: string
-    value?: string
-  }
+  name: string
+  value?: string
 }
 
-export function reducer(state: IState, action: IAction): IState {
-  return { ...state, [action.target.name]: action.target.value }
+export function reducer(state: IState, action: IAction | 'reset'): IState {
+  console.log(action)
+  if (action === 'reset') {
+    return initialValues
+  }
+  return { ...state, [action.name]: action.value }
 }
 
 export const initialValues: IState = {

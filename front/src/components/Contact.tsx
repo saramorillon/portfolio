@@ -1,5 +1,6 @@
 import Axios from 'axios'
-import React, { FormEvent, useReducer } from 'react'
+import React, { ChangeEvent, FormEvent, useReducer, useState } from 'react'
+import { toast, ToastContainer } from 'react-toastify'
 import Reaptcha from 'reaptcha'
 import styled from 'styled-components'
 import { colors } from '../colors'
@@ -68,14 +69,30 @@ const Button = styled('button')({
 
 export function Contact(): JSX.Element {
   const [{ body, captcha, email, name, subject }, dispatch] = useReducer(reducer, initialValues)
+  const [loading, setLoading] = useState(false)
 
   function onSubmit(e: FormEvent) {
     e.preventDefault()
+    setLoading(true)
     Axios.post('/contact', { body, captcha, email, name, subject })
+      .then(() => {
+        toast('Your message has been sent. You will receive a confirmation by email (please check your spams).')
+      })
+      .catch(() => {
+        toast('An error occured while sending your message. Please try again later.')
+      })
+      .finally(() => {
+        dispatch('reset')
+        setLoading(false)
+      })
   }
 
-  function onVerify(token: string) {
-    dispatch({ target: { name: 'captcha', value: token } })
+  function onVerify(value: string) {
+    dispatch({ name: 'captcha', value })
+  }
+
+  function onChange(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+    dispatch({ name: e.target.name, value: e.target.value })
   }
 
   return (
@@ -84,17 +101,18 @@ export function Contact(): JSX.Element {
       <Subtitle>I speak english and french</Subtitle>
       <Container>
         <form onSubmit={onSubmit}>
-          <HalfInput required onChange={dispatch} value={name} name="name" placeholder="Your name" />
-          <HalfInput required onChange={dispatch} value={email} name="email" placeholder="Your e-mail" type="email" />
-          <Input required onChange={dispatch} value={subject} name="subject" placeholder="Subject" />
-          <Textarea required onChange={dispatch} value={body} name="body" placeholder="Message" rows={10} />
+          <HalfInput required onChange={onChange} value={name} name="name" placeholder="Your name" />
+          <HalfInput required onChange={onChange} value={email} name="email" placeholder="Your e-mail" type="email" />
+          <Input required onChange={onChange} value={subject} name="subject" placeholder="Subject" />
+          <Textarea required onChange={onChange} value={body} name="body" placeholder="Message" rows={10} />
           <CaptchaBox>
             <Captcha sitekey="6LehqNoZAAAAAM6RJqbNlougu_eJvwULxp4wLX72" onVerify={onVerify} />
             <Checkbox required onChange={() => false} type="checkbox" checked={!!captcha} />
           </CaptchaBox>
-          <Button>Send message</Button>
+          <Button disabled={loading}>Send message</Button>
         </form>
       </Container>
+      <ToastContainer position="bottom-center" closeOnClick />
     </Section>
   )
 }
