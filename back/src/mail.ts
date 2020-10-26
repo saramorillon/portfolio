@@ -1,13 +1,14 @@
 import nodemailer from 'nodemailer'
+import { env } from './env'
 
 const transport = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     type: 'OAuth2',
     user: 'sara.morillon.pro@gmail.com',
-    clientId: process.env.CLIENT_ID,
-    clientSecret: process.env.CLIENT_SECRET,
-    refreshToken: process.env.REFRESH_TOKEN,
+    clientId: env.CLIENT_ID,
+    clientSecret: env.CLIENT_SECRET,
+    refreshToken: env.REFRESH_TOKEN,
   },
 })
 
