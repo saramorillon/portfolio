@@ -88,7 +88,7 @@ export function Contact(): JSX.Element {
           <Input required onChange={dispatch} value={subject} name="subject" placeholder="Subject" />
           <Textarea required onChange={dispatch} value={body} name="body" placeholder="Message" rows={10} />
           <CaptchaBox>
-            <Captcha ref={captchaRef} sitekey={env.POI_APP_SITE_KEY} onVerify={onVerify} size="invisible" />
+            <Captcha ref={captchaRef} sitekey={env.CAPTCHA_SITE_KEY} onVerify={onVerify} size="invisible" />
           </CaptchaBox>
           <Button>Send message</Button>
         </form>

@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "poi --prod",
-    "build:watch": "yarn build --watch",
+    "watch": "poi --watch",
     "start:dev": "poi --serve"
   },
   "devDependencies": {

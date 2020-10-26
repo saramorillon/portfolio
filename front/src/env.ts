@@ -1,3 +1,4 @@
 import { cleanEnv, str } from 'envalid'
 
-export const env = cleanEnv(process.env, { POI_APP_SITE_KEY: str() }, { strict: true })
+const processEnv = { CAPTCHA_SITE_KEY: process.env.POI_APP_CAPTCHA_SITE_KEY }
+export const env = cleanEnv(processEnv, { CAPTCHA_SITE_KEY: str() }, { strict: true })
