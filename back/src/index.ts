@@ -5,10 +5,12 @@ import Router from 'koa-router'
 import serve from 'koa-static'
 import path from 'path'
 import { verifyCaptcha } from './captcha'
+import { env } from './env'
 import { sendConfirmation, sendMail } from './mail'
 
 const staticApp = new Koa()
-staticApp.use(serve(path.join(__dirname, '..', '..', 'front', 'dist')))
+
+staticApp.use(serve(path.join(__dirname, env.STATIC_CONTENT_PATH)))
 
 const mailApp = new Koa()
 const router = new Router()
