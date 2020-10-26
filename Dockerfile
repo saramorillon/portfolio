@@ -8,10 +8,10 @@ WORKDIR  /usr/app
 
 FROM base as frontend-source
 
-COPY package.json ./
-COPY yarn.lock ./
-COPY ./src ./src
-COPY ./public ./public
+COPY front/package.json ./
+COPY front/yarn.lock ./
+COPY front/src ./src
+COPY front/public ./public
 
 #### Frontend build stage ####
 
@@ -21,7 +21,7 @@ ARG captcha_site_key
 
 ENV POI_APP_CAPTCHA_SITE_KEY=$captcha_site_key
 
-COPY ./tsconfig.json ./tsconfig.json
+COPY front/tsconfig.json ./
 RUN yarn
 RUN yarn build
 
@@ -29,9 +29,9 @@ RUN yarn build
 
 FROM base as backend-source
 
-COPY package.json ./
-COPY yarn.lock ./
-COPY ./src ./src
+COPY back/package.json ./
+COPY back/yarn.lock ./
+COPY back/src ./src
 
 ##### Backend dependencies stage ######
 
@@ -43,7 +43,7 @@ RUN yarn install --frozen-lockfile --production
 
 FROM backend-source as backend-build
 
-COPY ./tsconfig.json ./tsconfig.json
+COPY back/tsconfig.json ./
 RUN yarn
 RUN yarn build
 
