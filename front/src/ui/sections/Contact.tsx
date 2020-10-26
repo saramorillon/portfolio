@@ -1,7 +1,10 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Axios from 'axios'
-import React, { createRef, FormEvent, useCallback, useReducer } from 'react'
+import classnames from 'classnames'
+import React, { ChangeEvent, createRef, FormEvent, useCallback, useReducer, useState } from 'react'
+import { Slide, toast, ToastContainer } from 'react-toastify'
 import Reaptcha from 'reaptcha'
-import styled from 'styled-components'
+import styled, { CSSProp } from 'styled-components'
 import { colors } from '../../colors'
 import { env } from '../../env'
 import { initialValues, reducer } from '../../reducers/contact'
@@ -21,46 +24,57 @@ const Subtitle = styled('p')({
   textAlign: 'center',
 })
 
-const Input = styled('input')({
+const inputProps: CSSProp = {
+  width: 'calc(100% - 2rem)',
   display: 'inline-block',
   padding: '0.5rem 0.75rem',
-  margin: '1rem',
-  width: 'calc(100% - 2rem)',
+  margin: '0.5rem 1rem',
   boxSizing: 'border-box',
-})
+  borderRadius: '0.25rem',
+  border: `1px solid ${colors.secondary}`,
+  fontFamily: 'inherit',
+  ':focus': {
+    outline: '1px auto ' + colors.secondary,
+  },
+}
+
+const Input = styled('input')(inputProps)
 
 const HalfInput = styled(Input)({
   width: 'calc(50% - 2rem)',
 })
 
 const Textarea = styled('textarea')({
-  display: 'inline-block',
-  padding: '0.5rem 0.75rem',
+  ...inputProps,
   resize: 'none',
-  margin: '1rem',
-  width: 'calc(100% - 2rem)',
-  boxSizing: 'border-box',
-})
-
-const CaptchaBox = styled('div')({
-  position: 'relative',
-})
-
-const Captcha = styled(Reaptcha)({
-  margin: '1rem',
 })
 
 const Button = styled('button')({
-  border: `1px solid ${colors.grey}`,
+  border: 'none',
   outline: 'none',
   cursor: 'pointer',
-  padding: '1rem',
-  margin: '1rem',
+  padding: '0.75rem',
+  margin: '0.5rem 1rem',
+  borderRadius: '0.25rem',
+  fontWeight: 'bold',
+  backgroundColor: colors.secondary,
+  color: colors.white,
+  fontFamily: 'inherit',
+  display: 'flex',
+  alignItems: 'center',
+})
+
+const Icon = styled('div')({
+  padding: '0.25rem',
+  '& svg': {
+    display: 'block',
+  },
 })
 
 export function Contact(): JSX.Element {
   const captchaRef = createRef<Reaptcha>()
   const [{ body, email, name, subject }, dispatch] = useReducer(reducer, initialValues)
+  const [loading, setLoading] = useState(false)
 
   const onSubmit = useCallback(
     (e: FormEvent) => {
@@ -72,9 +86,27 @@ export function Contact(): JSX.Element {
 
   const onVerify = useCallback(
     (captcha: string) => {
+      setLoading(true)
       Axios.post('/contact', { body, captcha, email, name, subject })
+        .then(() => {
+          toast.success('Your message has been sent. You will received a confirmation by email')
+          dispatch('reset')
+        })
+        .catch(() => {
+          toast.error('An error occurred while sending you message. Please try again later')
+        })
+        .finally(() => {
+          setLoading(false)
+        })
     },
     [body, email, name, subject]
+  )
+
+  const onChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      dispatch({ name: e.target.name, value: e.target.value })
+    },
+    [dispatch]
   )
 
   return (
@@ -83,16 +115,18 @@ export function Contact(): JSX.Element {
       <Subtitle>I speak english and french</Subtitle>
       <Container>
         <form onSubmit={onSubmit}>
-          <HalfInput required onChange={dispatch} value={name} name="name" placeholder="Your name" />
-          <HalfInput required onChange={dispatch} value={email} name="email" placeholder="Your e-mail" type="email" />
-          <Input required onChange={dispatch} value={subject} name="subject" placeholder="Subject" />
-          <Textarea required onChange={dispatch} value={body} name="body" placeholder="Message" rows={10} />
-          <CaptchaBox>
-            <Captcha ref={captchaRef} sitekey={env.CAPTCHA_SITE_KEY} onVerify={onVerify} size="invisible" />
-          </CaptchaBox>
-          <Button>Send message</Button>
+          <HalfInput required onChange={onChange} value={name} name="name" placeholder="Your name" />
+          <HalfInput required onChange={onChange} value={email} name="email" placeholder="Your e-mail" type="email" />
+          <Input required onChange={onChange} value={subject} name="subject" placeholder="Subject" />
+          <Textarea required onChange={onChange} value={body} name="body" placeholder="Message" rows={10} />
+          <Button disabled={loading} className={classnames({ spin: loading })}>
+            <Icon>{loading ? <FontAwesomeIcon icon="spinner" spin /> : <FontAwesomeIcon icon="envelope" />}</Icon>
+            <div>Send message</div>
+          </Button>
         </form>
       </Container>
+      <Reaptcha ref={captchaRef} sitekey={env.CAPTCHA_SITE_KEY} onVerify={onVerify} size="invisible" />
+      <ToastContainer position="bottom-center" hideProgressBar transition={Slide} />
     </Section>
   )
 }

@@ -1,5 +1,5 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
-import { FaStar } from 'react-icons/fa'
 import styled from 'styled-components'
 import { colors } from '../../colors'
 import { Container } from '../components/Container'
@@ -32,7 +32,7 @@ const SkillName = styled('h2')({
 })
 
 const Stars = styled('div')({
-  color: colors.main,
+  color: colors.secondary,
   fontSize: '1.5rem',
 })
 
@@ -57,7 +57,7 @@ function Skill({ name, stars }: ISkillProps): JSX.Element {
       <SkillName>{name}</SkillName>
       <Stars>
         {new Array(stars).fill(undefined).map((_, key) => (
-          <FaStar key={key} />
+          <FontAwesomeIcon key={key} icon="star" />
         ))}
       </Stars>
     </Card>

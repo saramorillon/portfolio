@@ -3,20 +3,20 @@ import styled, { CSSObject } from 'styled-components'
 import { colors } from '../../colors'
 import { Container } from './Container'
 
-const Red = styled('span')({ color: colors.main })
+const Red = styled('span')({ color: colors.primary })
 
 const CatchPhrase = styled('h3')({
-  color: colors.main,
+  color: colors.primary,
   textTransform: 'uppercase',
   fontSize: 'small',
   margin: 0,
 })
 
 const buttonStyle: CSSObject = {
-  border: `2px solid ${colors.main}`,
+  border: `2px solid ${colors.primary}`,
   outline: 'none',
   cursor: 'pointer',
-  backgroundColor: colors.main,
+  backgroundColor: colors.primary,
   borderRadius: '0.25rem',
   color: colors.white,
   padding: '0.5rem',
@@ -29,7 +29,7 @@ const CvButton = styled('a')({
   ...buttonStyle,
   textDecoration: 'none',
   backgroundColor: 'transparent',
-  color: colors.main,
+  color: colors.primary,
   marginLeft: '0.75rem',
 })
 

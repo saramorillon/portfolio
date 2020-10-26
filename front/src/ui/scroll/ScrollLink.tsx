@@ -13,7 +13,7 @@ const Button = styled('span')({
     transform: 'scaleX(0)',
   },
   '&.active': {
-    color: colors.main,
+    color: colors.primary,
     hr: {
       transform: 'scaleX(1)',
     },
@@ -23,7 +23,7 @@ const Button = styled('span')({
 const Underline = styled('hr')({
   height: '2px',
   border: 'none',
-  background: colors.main,
+  background: colors.primary,
   transform: 'scaleX(0)',
   transition: 'all .3s ease-in-out 0s',
 })

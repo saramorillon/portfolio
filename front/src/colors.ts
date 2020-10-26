@@ -1,7 +1,8 @@
 import { Property } from 'csstype'
 
 export const colors: { [key: string]: Property.Color } = {
-  main: 'crimson',
+  primary: 'crimson',
+  secondary: 'cornflowerblue',
   white: '#fcfdff',
   black: '#303030',
   lightgrey: '#e8e9eb',

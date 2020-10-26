@@ -1,5 +1,5 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
-import { FaBook, FaGamepad, FaLaptopCode, FaMusic } from 'react-icons/fa'
 import styled from 'styled-components'
 import { colors } from '../../colors'
 import { Container as BaseContainer } from '../components/Container'
@@ -32,7 +32,7 @@ const Citation = styled('blockquote')({
 })
 
 const Red = styled('p')({
-  color: colors.main,
+  color: colors.primary,
   fontWeight: 'bold',
 })
 
@@ -47,7 +47,7 @@ const Term = styled('div')({
 })
 
 const Desc = styled('div')({
-  color: colors.main,
+  color: colors.primary,
   fontWeight: 'bold',
   flex: 1,
 })
@@ -74,7 +74,7 @@ const Flex = styled('div')({
 const Icon = styled('span')({
   display: 'inline-flex',
   borderRadius: '50%',
-  backgroundColor: colors.main,
+  backgroundColor: colors.primary,
   color: colors.white,
   width: '2rem',
   height: '2rem',
@@ -128,10 +128,10 @@ export function About(): JSX.Element {
             </Row>
           </article>
           <Love>
-            <Indicator icon={<FaLaptopCode />} label="Computing science" />
-            <Indicator icon={<FaBook />} label="Books" />
-            <Indicator icon={<FaGamepad />} label="Video games" />
-            <Indicator icon={<FaMusic />} label="Music" />
+            <Indicator icon={<FontAwesomeIcon icon="laptop-code" />} label="Computing science" />
+            <Indicator icon={<FontAwesomeIcon icon="book" />} label="Books" />
+            <Indicator icon={<FontAwesomeIcon icon="gamepad" />} label="Video games" />
+            <Indicator icon={<FontAwesomeIcon icon="music" />} label="Music" />
           </Love>
         </Presentation>
       </Container>

@@ -1,5 +1,5 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
-import { FaBriefcase, FaCalendarAlt, FaHeart } from 'react-icons/fa'
 import styled from 'styled-components'
 import { colors } from '../../colors'
 
@@ -12,7 +12,7 @@ const Band = styled('div')({
 
 const Icon = styled('div')({
   borderRadius: '50%',
-  backgroundColor: colors.main,
+  backgroundColor: colors.secondary,
   padding: '0.5em',
   display: 'flex',
   justifyContent: 'center',
@@ -30,7 +30,7 @@ const Quantity = styled('div')({
 const Label = styled('div')({
   fontWeight: 'bold',
   textTransform: 'uppercase',
-  color: colors.main,
+  color: colors.secondary,
   fontSize: '0.75rem',
 })
 
@@ -62,9 +62,9 @@ export function Indicators(): JSX.Element {
   const exp = new Date().getFullYear() - 2014
   return (
     <Band>
-      <Indicator quantity={customers} label="projects completed" icon={<FaBriefcase />} />
-      <Indicator quantity={customers} label="happy principals" icon={<FaHeart />} />
-      <Indicator quantity={exp} label="years of experience" icon={<FaCalendarAlt />} />
+      <Indicator quantity={customers} label="projects completed" icon={<FontAwesomeIcon icon="briefcase" />} />
+      <Indicator quantity={customers} label="happy principals" icon={<FontAwesomeIcon icon="heart" />} />
+      <Indicator quantity={exp} label="years of experience" icon={<FontAwesomeIcon icon="calendar-alt" />} />
     </Band>
   )
 }
