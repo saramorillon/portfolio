@@ -38,7 +38,7 @@ export function ScrollLink({ to, children }: PropsWithChildren<{ to: string }>):
     debouncers[to] = setTimeout(() => {
       const elem = document.getElementById(to)
       const rect = elem?.getBoundingClientRect() || { y: 0, height: 0 }
-      if (rect.y <= 100 && rect.y + rect.height > 100) {
+      if (rect.y <= 80 && rect.y + rect.height > 80) {
         setActive(true)
       } else {
         setActive(false)
