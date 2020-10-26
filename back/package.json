@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "start:dev": "nodemon -r dotenv/config --inspect src/index.ts"
+    "watch": "nodemon -r dotenv/config --inspect src/index.ts",
+    "start": "node dist/index.js"
   },
   "dependencies": {
     "axios": "^0.21.0",

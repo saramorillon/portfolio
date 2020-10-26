@@ -4,7 +4,7 @@
   "scripts": {
     "build": "poi --prod",
     "watch": "poi --watch",
-    "start:dev": "poi --serve"
+    "serve": "poi --serve"
   },
   "devDependencies": {
     "@poi/plugin-typescript": "^12.0.1",
