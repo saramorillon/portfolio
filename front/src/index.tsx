@@ -3,6 +3,7 @@ import {
   faBook,
   faBriefcase,
   faCalendarAlt,
+  faEnvelope,
   faGamepad,
   faHeart,
   faLaptopCode,
@@ -15,6 +16,17 @@ import ReactDOM from 'react-dom'
 import 'react-toastify/dist/ReactToastify.min.css'
 import { App } from './App'
 
-library.add(faBriefcase, faHeart, faCalendarAlt, faLaptopCode, faBook, faGamepad, faMusic, faStar, faSpinner)
+library.add(
+  faBriefcase,
+  faHeart,
+  faCalendarAlt,
+  faLaptopCode,
+  faBook,
+  faGamepad,
+  faMusic,
+  faStar,
+  faSpinner,
+  faEnvelope
+)
 
 ReactDOM.render(<App />, document.getElementById('root'))
