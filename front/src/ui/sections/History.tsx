@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { colors } from '../colors'
-import { Container as BaseContainer } from './Container'
+import { colors } from '../../colors'
+import { Container as BaseContainer } from '../components/Container'
 
 const Section = styled('section')({
   backgroundColor: colors.lightgrey,
@@ -41,25 +41,25 @@ export function History(): JSX.Element {
       <Subtitle>They trusted me, why not you?</Subtitle>
       <Container>
         <Card>
-          <img height="100" src="ausy.jpg" alt="Ausy" />
+          <img height="100" src="assets/principals/ausy.jpg" alt="Ausy" />
         </Card>
         <Card>
-          <img height="100" src="cb.jpg" alt="Groupement des Cartes Bancaires" />
+          <img height="100" src="assets/principals/cb.jpg" alt="Groupement des Cartes Bancaires" />
         </Card>
         <Card>
-          <img height="100" src="mindef.jpg" alt="Ministère de la Défense" />
+          <img height="100" src="assets/principals/mindef.jpg" alt="Ministère de la Défense" />
         </Card>
         <Card>
-          <img height="100" src="sagem.jpg" alt="Safran Sagem" />
+          <img height="100" src="assets/principals/sagem.jpg" alt="Safran Sagem" />
         </Card>
         <Card>
-          <img height="100" src="metron.jpg" alt="Metron" />
+          <img height="100" src="assets/principals/metron.jpg" alt="Metron" />
         </Card>
         <Card>
-          <img height="100" src="eh.jpg" alt="Euler Hermes" />
+          <img height="100" src="assets/principals/eh.jpg" alt="Euler Hermes" />
         </Card>
         <Card>
-          <img height="100" src="kering.jpg" alt="Kering" />
+          <img height="100" src="assets/principals/kering.jpg" alt="Kering" />
         </Card>
       </Container>
     </Section>

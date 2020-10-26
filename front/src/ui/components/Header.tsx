@@ -1,9 +1,9 @@
 import classnames from 'classnames'
 import React from 'react'
 import styled from 'styled-components'
-import { colors } from '../colors'
-import { useScroll } from '../hooks/useScroll'
-import { Link } from './Link'
+import { colors } from '../../colors'
+import { useScroll } from '../../hooks/useScroll'
+import { ScrollLink } from '../scroll/ScrollLink'
 
 const Menu = styled('ul')({
   listStyleType: 'none',
@@ -34,22 +34,22 @@ export function Header(): JSX.Element {
   return (
     <Menu className={classnames({ fixed: y > 0 })}>
       <MenuItem>
-        <Link to="home">Home</Link>
+        <ScrollLink to="home">Home</ScrollLink>
       </MenuItem>
       <MenuItem>
-        <Link to="about">About</Link>
+        <ScrollLink to="about">About</ScrollLink>
       </MenuItem>
       <MenuItem>
-        <Link to="skills">Skills</Link>
+        <ScrollLink to="skills">Skills</ScrollLink>
       </MenuItem>
       <MenuItem>
-        <Link to="networks">Networks</Link>
+        <ScrollLink to="networks">Networks</ScrollLink>
       </MenuItem>
       <MenuItem>
-        <Link to="history">History</Link>
+        <ScrollLink to="history">History</ScrollLink>
       </MenuItem>
       <MenuItem>
-        <Link to="contact">Contact</Link>
+        <ScrollLink to="contact">Contact</ScrollLink>
       </MenuItem>
     </Menu>
   )

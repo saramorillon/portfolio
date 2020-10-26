@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { colors } from '../colors'
-import { Container as BaseContainer } from './Container'
+import { colors } from '../../colors'
+import { Container as BaseContainer } from '../components/Container'
 
 const Container = styled(BaseContainer)({
   flexDirection: 'row',
@@ -38,13 +38,13 @@ export function Networks(): JSX.Element {
       <Subtitle>You can find me there</Subtitle>
       <Container>
         <a href="www.linkedin.com/in/sara-m-091785195" target="blank" rel="noopener noreferrer">
-          <Img height="75" src="linkedin.png" alt="Linked In" />
+          <Img height="75" src="assets/networks/linkedin.png" alt="Linked In" />
         </a>
         <a href="www.linkedin.com/in/sara-m-091785195" target="blank" rel="noopener noreferrer">
-          <Img height="75" src="malt.png" alt="Malt" />
+          <Img height="75" src="assets/networks/malt.png" alt="Malt" />
         </a>
         <a href="www.linkedin.com/in/sara-m-091785195" target="blank" rel="noopener noreferrer">
-          <Img height="75" src="github.png" alt="Github" />
+          <Img height="75" src="assets/networks/github.png" alt="Github" />
         </a>
       </Container>
     </Section>

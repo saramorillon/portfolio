@@ -2,9 +2,9 @@ import Axios from 'axios'
 import React, { FormEvent, useReducer } from 'react'
 import Reaptcha from 'reaptcha'
 import styled from 'styled-components'
-import { colors } from '../colors'
-import { initialValues, reducer } from '../reducers/contact'
-import { Container } from './Container'
+import { colors } from '../../colors'
+import { initialValues, reducer } from '../../reducers/contact'
+import { Container } from '../components/Container'
 
 const Section = styled('section')({
   padding: '4rem 0',

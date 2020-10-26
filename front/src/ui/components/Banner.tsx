@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { CSSObject } from 'styled-components'
-import { colors } from '../colors'
+import { colors } from '../../colors'
 import { Container } from './Container'
 
 const Red = styled('span')({ color: colors.main })

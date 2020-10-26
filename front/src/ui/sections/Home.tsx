@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { colors } from '../colors'
-import { Banner } from './Banner'
-import { Header } from './Header'
-import { Indicators } from './Indicators'
+import { colors } from '../../colors'
+import { Banner } from '../components/Banner'
+import { Header } from '../components/Header'
+import { Indicators } from '../components/Indicators'
 
 const Background = styled('div')({
-  backgroundImage: 'url(background.jpg)',
+  backgroundImage: 'url(assets/background.jpg)',
   backgroundRepeat: 'no-repeat',
   height: '28rem',
   color: colors.white,

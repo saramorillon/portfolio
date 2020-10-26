@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaBriefcase, FaCalendarAlt, FaHeart } from 'react-icons/fa'
 import styled from 'styled-components'
-import { colors } from '../colors'
+import { colors } from '../../colors'
 
 const Band = styled('div')({
   backgroundColor: colors.lightgrey,

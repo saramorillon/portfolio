@@ -1,8 +1,8 @@
 import React from 'react'
 import { FaStar } from 'react-icons/fa'
 import styled from 'styled-components'
-import { colors } from '../colors'
-import { Container } from './Container'
+import { colors } from '../../colors'
+import { Container } from '../components/Container'
 
 const Section = styled('section')({
   backgroundColor: colors.lightgrey,

@@ -1,8 +1,8 @@
 import classnames from 'classnames'
 import React, { PropsWithChildren, useCallback, useState } from 'react'
 import styled from 'styled-components'
-import { colors } from '../colors'
-import { useScrollEffect } from '../hooks/useScroll'
+import { colors } from '../../colors'
+import { useScrollEffect } from '../../hooks/useScroll'
 
 const Button = styled('span')({
   textTransform: 'uppercase',
@@ -30,7 +30,7 @@ const Underline = styled('hr')({
 
 const debouncers: { [key: string]: NodeJS.Timeout } = {}
 
-export function Link({ to, children }: PropsWithChildren<{ to: string }>): JSX.Element {
+export function ScrollLink({ to, children }: PropsWithChildren<{ to: string }>): JSX.Element {
   const [active, setActive] = useState(false)
 
   const handler = useCallback(() => {

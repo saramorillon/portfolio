@@ -1,8 +1,8 @@
 import React from 'react'
 import { FaBook, FaGamepad, FaLaptopCode, FaMusic } from 'react-icons/fa'
 import styled from 'styled-components'
-import { colors } from '../colors'
-import { Container as BaseContainer } from './Container'
+import { colors } from '../../colors'
+import { Container as BaseContainer } from '../components/Container'
 
 const Container = styled(BaseContainer)({
   flexDirection: 'row',
@@ -102,7 +102,7 @@ export function About(): JSX.Element {
   return (
     <section id="about">
       <Container>
-        <Img src="me.png" />
+        <Img src="assets/me.png" />
         <Presentation>
           <article>
             <Title>About me</Title>

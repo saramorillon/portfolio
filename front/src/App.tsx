@@ -1,12 +1,12 @@
 import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import { colors } from './colors'
-import { About } from './components/About'
-import { Contact } from './components/Contact'
-import { History } from './components/History'
-import { Home } from './components/Home'
-import { Networks } from './components/Networks'
-import { Skills } from './components/Skills'
+import { About } from './ui/sections/About'
+import { Contact } from './ui/sections/Contact'
+import { History } from './ui/sections/History'
+import { Home } from './ui/sections/Home'
+import { Networks } from './ui/sections/Networks'
+import { Skills } from './ui/sections/Skills'
 
 const GlobalStyle = createGlobalStyle({
   body: {
