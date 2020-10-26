@@ -3,7 +3,6 @@ interface IState {
   email?: string
   subject?: string
   body?: string
-  captcha?: string
 }
 
 interface IAction {
@@ -22,5 +21,4 @@ export const initialValues: IState = {
   email: '',
   subject: '',
   body: '',
-  captcha: '',
 }

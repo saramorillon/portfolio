@@ -1,8 +1,9 @@
 import Axios from 'axios'
-import React, { FormEvent, useReducer } from 'react'
+import React, { createRef, FormEvent, useCallback, useReducer } from 'react'
 import Reaptcha from 'reaptcha'
 import styled from 'styled-components'
 import { colors } from '../../colors'
+import { env } from '../../env'
 import { initialValues, reducer } from '../../reducers/contact'
 import { Container } from '../components/Container'
 
@@ -49,15 +50,6 @@ const Captcha = styled(Reaptcha)({
   margin: '1rem',
 })
 
-const Checkbox = styled('input')({
-  pointerEvents: 'none',
-  position: 'absolute',
-  zIndex: -1,
-  top: '50px',
-  left: '31px',
-  opacity: 0,
-})
-
 const Button = styled('button')({
   border: `1px solid ${colors.grey}`,
   outline: 'none',
@@ -67,16 +59,23 @@ const Button = styled('button')({
 })
 
 export function Contact(): JSX.Element {
-  const [{ body, captcha, email, name, subject }, dispatch] = useReducer(reducer, initialValues)
+  const captchaRef = createRef<Reaptcha>()
+  const [{ body, email, name, subject }, dispatch] = useReducer(reducer, initialValues)
 
-  function onSubmit(e: FormEvent) {
-    e.preventDefault()
-    Axios.post('/contact', { body, captcha, email, name, subject })
-  }
+  const onSubmit = useCallback(
+    (e: FormEvent) => {
+      e.preventDefault()
+      captchaRef.current?.execute()
+    },
+    [captchaRef]
+  )
 
-  function onVerify(token: string) {
-    dispatch({ target: { name: 'captcha', value: token } })
-  }
+  const onVerify = useCallback(
+    (captcha: string) => {
+      Axios.post('/contact', { body, captcha, email, name, subject })
+    },
+    [body, email, name, subject]
+  )
 
   return (
     <Section id="contact">
@@ -89,8 +88,7 @@ export function Contact(): JSX.Element {
           <Input required onChange={dispatch} value={subject} name="subject" placeholder="Subject" />
           <Textarea required onChange={dispatch} value={body} name="body" placeholder="Message" rows={10} />
           <CaptchaBox>
-            <Captcha sitekey="6LehqNoZAAAAAM6RJqbNlougu_eJvwULxp4wLX72" onVerify={onVerify} />
-            <Checkbox required onChange={() => false} type="checkbox" checked={!!captcha} />
+            <Captcha ref={captchaRef} sitekey={env.POI_APP_SITE_KEY} onVerify={onVerify} size="invisible" />
           </CaptchaBox>
           <Button>Send message</Button>
         </form>
