@@ -52,7 +52,7 @@ export function Banner(): JSX.Element {
       </Title>
       <div>
         <HireButton onClick={onClick}>Hire me</HireButton>
-        <CvButton href="cv.pdf" target="_blank" rel="noopener noreferrer">
+        <CvButton href="assets/cv.pdf" target="_blank" rel="noopener noreferrer">
           Download my CV
         </CvButton>
       </div>
