@@ -1,60 +1,63 @@
-##### BASE NODE IMAGE #######
-
 FROM node:12.16.3-alpine as base
 
 WORKDIR  /usr/app
 
-##### Frontend source stage ######
+# Backend sources
 
-FROM base as frontend-source
+FROM base as back-sources
 
-COPY front/package.json ./
-COPY front/yarn.lock ./
-COPY front/src ./src
-COPY front/public ./public
+RUN mkdir back
 
-#### Frontend build stage ####
+COPY back/package.json back
+COPY back/yarn.lock back
+COPY back/src back
+COPY back/tsconfig.json back
 
-FROM frontend-source as frontend-build
+# Install backend dependencies
+
+FROM back-sources as dependencies
+
+RUN yarn --cwd /usr/app/back install --frozen-lockfile --production
+
+# Build backend
+
+FROM back-sources as back-build
+
+RUN yarn --cwd /usr/app/back install
+RUN yarn --cwd /usr/app/back build
+
+# Frontend sources
+
+FROM base as front-sources
+
+RUN mkdir front
+
+COPY back/package.json back
+COPY back/yarn.lock back
+COPY back/src back
+COPY front/public front
+COPY back/tsconfig.json back
+
+# Build frontend
+
+FROM front-sources as front-build
 
 ARG captcha_site_key
-
 ENV POI_APP_CAPTCHA_SITE_KEY=$captcha_site_key
+RUN yarn --cwd /usr/app/back install
+RUN yarn --cwd /usr/app/back build
 
-COPY front/tsconfig.json ./
-RUN yarn
-RUN yarn build
-
-##### Backend source stage ######
-
-FROM base as backend-source
-
-COPY back/package.json ./
-COPY back/yarn.lock ./
-COPY back/src ./src
-
-##### Backend dependencies stage ######
-
-FROM backend-source as backend-dependencies
-
-RUN yarn install --frozen-lockfile --production
-
-#### Backend build stage ####
-
-FROM backend-source as backend-build
-
-COPY back/tsconfig.json ./
-RUN yarn
-RUN yarn build
-
-###### Release stage #####
+# Release
 
 FROM base as release
 
-COPY package.json ./
-COPY --from=backend-dependencies --chown=node:node /usr/app/node_modules/ /usr/app/node_modules/
-COPY --from=backend-build --chown=node:node /usr/app/dist/ /usr/app/dist/
-COPY --from=frontend-build --chown=node:node /usr/app/dist/ /usr/app/dist/public
+COPY --from=dependencies --chown=node:node /usr/app/back/package.json /usr/app/
+COPY --from=dependencies --chown=node:node /usr/app/back/node_modules/ /usr/app/node_modules/
+COPY --from=back-build --chown=node:node /usr/app/back/dist/ /usr/app/dist/
+COPY --from=build --chown=node:node /usr/app/front/dist/* /usr/app/dist/public/
+
+RUN ls -al /usr/app
+RUN ls -al /usr/app/dist
 
 USER node
 
