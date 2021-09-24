@@ -8,6 +8,7 @@ import { Indicators } from '../components/Indicators'
 const Background = styled('div')({
   backgroundImage: 'url(assets/background.jpg)',
   backgroundRepeat: 'no-repeat',
+  backgroundSize: 'cover',
   height: '28rem',
   color: colors.white,
   display: 'flex',
