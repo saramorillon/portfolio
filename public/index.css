@@ -1,36 +1,36 @@
 :root {
-  --palette-primary: #EA1F48;
-  --palette-secondary: #0582FF;
   --palette-white: #fcfdff;
   --palette-black: #303030;
+  --palette-primary: crimson;
+  --palette-secondary: dodgerblue;
+  --palette-light: #fcfdff;
+  --palette-dark: #303030;
   --palette-grey: #e8e9eb;
 }
 
 html[data-theme="dark"] {
-  --palette-primary: #dc143c;
-  --palette-secondary: #1e90ff;
-  --palette-white: #303030;
-  --palette-black: #e8e9eb;
-  --palette-grey: #3d3d3d;
+  --palette-light: #202020;
+  --palette-dark: #e8e9eb;
+  --palette-grey: #2d2d2d;
 }
 
 html[data-theme="dark"] .github-light,
-html[data-theme="dark"] .sun {
+html[data-theme="dark"] .moon {
   display: none;
 }
 
 html[data-theme="dark"] .github-dark,
-html[data-theme="dark"] .moon {
+html[data-theme="dark"] .sun {
   display: initial;
 }
 
 html:not([data-theme="dark"]) .github-light,
-html:not([data-theme="dark"]) .sun {
+html:not([data-theme="dark"]) .moon {
   display: initial;
 }
 
 html:not([data-theme="dark"]) .github-dark,
-html:not([data-theme="dark"]) .moon {
+html:not([data-theme="dark"]) .sun {
   display: none;
 }
 
@@ -47,18 +47,15 @@ html:not([data-theme="dark"]) .moon {
 }
 
 .button.outline {
+  color: var(--palette-dark);
   background-color: unset;
-  color: var(--palette-primary);
+  border: 2px solid var(--palette-dark);
 }
 
 .container {
   max-width: 70rem;
   margin: auto;
   padding: 3rem;
-}
-
-* {
-  transition: background-color .5s ease-out, color .5s ease-out;
 }
 
 a {
@@ -74,8 +71,8 @@ h2 {
 
 body {
   margin: 0;
-  background-color: var(--palette-white);
-  color: var(--palette-black);
+  background-color: var(--palette-light);
+  color: var(--palette-dark);
   font-family: "Noto Sans", sans-serif;
   display: flex;
   flex-direction: column;
@@ -94,7 +91,7 @@ header nav {
 }
 
 header nav a {
-  color: var(--palette-black);
+  color: var(--palette-dark);
   text-transform: uppercase;
   font-weight: bold;
 }
@@ -105,10 +102,6 @@ header hr {
   background-color: var(--palette-primary);
   transition: transform .5s ease-out;
   transform: scaleX(0);
-}
-
-header a.active {
-  color: var(--palette-primary);
 }
 
 header a.active hr {
@@ -174,12 +167,11 @@ footer {
 }
 
 #about {
-  color: var(--palette-black);
+  color: var(--palette-dark);
   background-image: url("/images/background_light.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  transition: background-image .5s ease-out, color .5s ease-out;
 }
 
 html[data-theme="dark"] #about {
@@ -213,7 +205,7 @@ html[data-theme="dark"] #about {
 #projects .project {
   display: flex;
   flex-direction: column;
-  background-color: var(--palette-white);
+  background-color: var(--palette-light);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   padding: 1rem;
   max-width: 20rem;
@@ -250,7 +242,7 @@ html[data-theme="dark"] #about {
 }
 
 #skills .skill {
-  background-color: var(--palette-white);
+  background-color: var(--palette-light);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   padding: 2rem;
   text-align: center;
