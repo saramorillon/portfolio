@@ -1,0 +1,277 @@
+:root {
+  --palette-primary: crimson;
+  --palette-secondary: dodgerblue;
+  --palette-white: #fcfdff;
+  --palette-black: #303030;
+  --palette-grey: #e8e9eb;
+}
+
+html[data-theme="dark"] {
+  --palette-primary: crimson;
+  --palette-secondary: dodgerblue;
+  --palette-white: #303030;
+  --palette-black: #e8e9eb;
+  --palette-grey: #3d3d3d;
+}
+
+html[data-theme="dark"] .github-light,
+html[data-theme="dark"] .sun {
+  display: none;
+}
+
+html[data-theme="dark"] .github-dark,
+html[data-theme="dark"] .moon {
+  display: initial;
+}
+
+html:not([data-theme="dark"]) .github-light,
+html:not([data-theme="dark"]) .sun {
+  display: initial;
+}
+
+html:not([data-theme="dark"]) .github-dark,
+html:not([data-theme="dark"]) .moon {
+  display: none;
+}
+
+.button {
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--palette-white);
+  background-color: var(--palette-primary);
+  border: 2px solid var(--palette-primary);
+  border-radius: 0.25rem;
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+}
+
+.button.outline {
+  background-color: unset;
+  color: var(--palette-primary);
+}
+
+.container {
+  max-width: 70rem;
+  margin: auto;
+  padding: 3rem;
+}
+
+* {
+  transition: background-color .5s ease-out, color .5s ease-out;
+}
+
+a {
+  text-decoration: none;
+  color: var(--palette-secondary);
+}
+
+h1,
+h2 {
+  text-align: center;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  background-color: var(--palette-white);
+  color: var(--palette-black);
+  font-family: "Noto Sans", sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+header {
+  background-color: var(--palette-grey);
+}
+
+header nav {
+  padding: 1.5rem 0 1rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+header nav a {
+  color: var(--palette-black);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+header hr {
+  height: 2px;
+  border: none;
+  background-color: var(--palette-primary);
+  transition: transform .5s ease-out;
+  transform: scaleX(0);
+}
+
+header a.active {
+  color: var(--palette-primary);
+}
+
+header a.active hr {
+  transform: scaleX(1);
+}
+
+main {
+  overflow: auto;
+}
+
+section {
+  padding: 3rem 0;
+}
+
+section:nth-child(even) {
+  background-color: var(--palette-grey);
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+}
+
+.stars {
+  font-size: 2rem;
+  color: var(--palette-secondary);
+}
+
+.badges {
+  display: flex;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.badges span {
+  color: var(--palette-secondary);
+}
+
+#network {
+  position: absolute;
+  left: 0;
+  margin: 1.5rem;
+}
+
+#network {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+#network img {
+  height: 1.5rem;
+}
+
+#theme-toggle {
+  position: absolute;
+  right: 0;
+  margin: 1.5rem;
+  font-size: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+#about {
+  color: var(--palette-black);
+  background-image: url("/images/background_light.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: background-image .5s ease-out, color .5s ease-out;
+}
+
+html[data-theme="dark"] #about {
+  background-image: url("/images/background_dark.jpg");
+}
+
+#about h1 {
+  text-transform: uppercase;
+  color: var(--palette-primary);
+}
+
+#about .badges {
+  justify-content: center;
+}
+
+#about .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+#projects .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding-top: 3rem;
+}
+
+#projects .project {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--palette-white);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  padding: 1rem;
+  max-width: 20rem;
+}
+
+#projects .project a {
+  float: right;
+}
+
+#projects .badges {
+  margin-top: auto;
+}
+
+#strategy .strategic-skill {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin: 2rem auto;
+}
+
+#strategy .strategic-skill h4 {
+  opacity: 0.75;
+}
+
+#strategy .strategic-skill img {
+  height: 8rem;
+}
+
+#skills .skills {
+  margin: 3rem auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+#skills .skill {
+  background-color: var(--palette-white);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  padding: 2rem;
+  text-align: center;
+  flex: 1 1 auto;
+}
+
+#skills .skill .flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+#skills .skill h3 {
+  margin-top: 0;
+}
+
+#skills .skill img {
+  height: 3rem;
+}
+
+#skills .skill figure {
+  margin: 0;
+}

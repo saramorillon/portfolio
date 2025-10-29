@@ -1,0 +1,15 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "scripts": {
+    "watch": "vite public"
+  },
+  "devDependencies": {
+    "oxlint": "^1.16.0",
+    "prettier": "^3.6.2",
+    "vite": "^7.1.7"
+  },
+  "prettier": {
+    "printWidth": 120
+  }
+}
