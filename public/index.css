@@ -1,14 +1,14 @@
 :root {
-  --palette-primary: crimson;
-  --palette-secondary: dodgerblue;
+  --palette-primary: #EA1F48;
+  --palette-secondary: #0582FF;
   --palette-white: #fcfdff;
   --palette-black: #303030;
   --palette-grey: #e8e9eb;
 }
 
 html[data-theme="dark"] {
-  --palette-primary: crimson;
-  --palette-secondary: dodgerblue;
+  --palette-primary: #dc143c;
+  --palette-secondary: #1e90ff;
   --palette-white: #303030;
   --palette-black: #e8e9eb;
   --palette-grey: #3d3d3d;
